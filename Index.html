@@ -6,31 +6,66 @@
                 width: 120px;
                 border-top:1px solid black;
                 border-bottom:1px solid black;
-                cursor: pointer
+                border-right: 1px solid black;
+                cursor: pointer;
+                transition: 0.3s;
             }
             .recipetitle:hover{
                 color:blue;
+                font-size: large;
+            }
+            .selectedRow{
+                color:blue;
+                font-size: large;
+            }
+            input[type=text]{
+                border:2px solid #aaa;
+                border-radius:4px;
+                margin:8px 0;
+                outline:none;
+                padding:8px;
+                box-sizing:border-box;
+                transition:.3s;
+            }
+            
+            input[type=text]:focus{
+                border-color:dodgerBlue;
+                box-shadow:0 0 8px 0 dodgerBlue;
+            }
+
+            button{
+                height: 100;
+                padding: 8px;
+                border: solid 1px;
+                border-radius: 2px;
+                background-color: rgb(235, 229, 229);
+            }
+            button:hover{
+                background-color:darkgray;
             }
         </style>
     </head>
     <body>
-        <div id="response">
-            <label for="ing">Enter the ingredient : </label>
-            <input id="ing" type="text" width="50" height="100"/>
+        <div style="background-color: dimgray; width: 100%; height:70px; position: absolute; top: 0px;left: 0px;">
+            <h1 style="text-align: center;">Healthy Recipes</h1>
+        </div>
+        <div id="response" style="position: relative;top:70px">
+            <label for="ing"><b>Enter the ingredient : </b></label>
+            <input id="ing" type="text" width="50" height="100" placeholder="e.g. chicken"/>
             <button id="submit" type="button" style="margin-top: 10px;">Submit</button><br><br>
 
         </div>
         
-        <table>
+        <table style="width: 100%; position: relative;top:60px"> 
 <tr>
 
-<td style="width: 50%;">
+<td style="width: 30%; vertical-align: top;">
        
-        <table id="recipeList" style="border-spacing: 0px; width: 100%;">
+        <table id="recipeList" style="border-spacing: 0px; width: 100%;border-right: black 1px;">
             
         </table>
     </td>
-    <td style="width: 50%; vertical-align: top;">
+    <td style="width: 70%; vertical-align: top;">
         <div id="recipeDetails" >
 
         </div>   

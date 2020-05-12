@@ -22,6 +22,7 @@ btn.addEventListener("click", function() {
             recipeName.addEventListener('click', function()
             {
                 showRecipe(recipe.idMeal);
+                this.classList.add("selectedRow");
             })
             i++;
         });
@@ -35,6 +36,11 @@ function showRecipe(recipeId)
 {
     var request = new XMLHttpRequest();
     request.open('GET', 'https://www.themealdb.com/api/json/v1/1/lookup.php?i='+recipeId, true);
+       let prevSelected = document.getElementsByClassName("selectedRow");
+       if (prevSelected.length > 0)
+       {
+        prevSelected[0].classList.remove("selectedRow");
+       }
 
     request.onload = function() {
     // Begin accessing JSON data here
