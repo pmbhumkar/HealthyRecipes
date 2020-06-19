@@ -1,78 +1,64 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <style>
-            .recipetitle{
-                width: 120px;
-                border-top:1px solid black;
-                border-bottom:1px solid black;
-                border-right: 1px solid black;
-                cursor: pointer;
-                transition: 0.3s;
-            }
-            .recipetitle:hover{
-                color:blue;
-                font-size: large;
-            }
-            .selectedRow{
-                color:blue;
-                font-size: large;
-            }
-            input[type=text]{
-                border:2px solid #aaa;
-                border-radius:4px;
-                margin:8px 0;
-                outline:none;
-                padding:8px;
-                box-sizing:border-box;
-                transition:.3s;
-            }
-            
-            input[type=text]:focus{
-                border-color:dodgerBlue;
-                box-shadow:0 0 8px 0 dodgerBlue;
-            }
+<html lang="en">
 
-            button{
-                height: 100;
-                padding: 8px;
-                border: solid 1px;
-                border-radius: 2px;
-                background-color: rgb(235, 229, 229);
-            }
-            button:hover{
-                background-color:darkgray;
-            }
-        </style>
-    </head>
-    <body>
-        <div style="background-color: dimgray; width: 100%; height:70px; position: absolute; top: 0px;left: 0px;">
-            <h1 style="text-align: center;">Healthy Recipes</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <title>Healthy Recipe</title>
+    <style>
+        .pad {
+            padding: 20px;
+        }
+
+        /* .collapsible-header {
+            border-radius: 10px 10px;
+        }
+        .collapsible-body {
+            border-radius: 10px 10px;
+        } */
+        #recipe_title {
+            padding: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="main_body">
+        <h1 class="blue darken-1 white-text center pad">Healthy Recipe</h1>
+        <div class="row">
+            <div class="col">
+                <label for="ing">Ingredients</label>
+                <input type="text" id="ing" placeholder="e.g. Chicken">
+            </div>
+            <div class="col">
+                <div class="btn-large blue white-text waves-effect waves-light" id="search-btn">
+                    <span>Search</span>
+                    <i class="material-icons right">search</i>
+                </div>
+            </div>
         </div>
-        <div id="response" style="position: relative;top:70px">
-            <label for="ing"><b>Enter the ingredient : </b></label>
-            <input id="ing" type="text" width="50" height="100" placeholder="e.g. chicken"/>
-            <button id="submit" type="button" style="margin-top: 10px;">Submit</button><br><br>
-
+        <div class="container left" style="margin-top: 40px;">
+            <ul class="collapsible z-depth-0 guides" style="border: none;" id="recipe-list">
+            </ul>
         </div>
-        
-        <table style="width: 100%; position: relative;top:60px"> 
-<tr>
 
-<td style="width: 30%; vertical-align: top;">
-       
-        <table id="recipeList" style="border-spacing: 0px; width: 100%;border-right: black 1px;">
-            
-        </table>
-    </td>
-    <td style="width: 70%; vertical-align: top;">
-        <div id="recipeDetails" >
+    </div>
 
-        </div>   
-    </td>
-    </tr>
-    </table>
-        <script src="home.js"></script>
 
-    </body>
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal blue lighten-5 center">
+        <div class="modal-content">
+            <h4 class="red-text" id="error_msg">Modal Header</h4>
+        </div>
+    </div>
+    <script src="home.js"></script>
+</body>
+
 </html>
