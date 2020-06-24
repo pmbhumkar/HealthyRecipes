@@ -6,8 +6,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var items = document.querySelectorAll('.collapsible');
     M.Collapsible.init(items);
-    // alert('Hey there!');
-
 });
 
 
@@ -20,17 +18,11 @@ function createList(recipeList, recipe) {
     let img = document.createElement('img');
     let span = document.createElement('span')
 
-    title.setAttribute('class', 'collapsible-header blue darken-1 white-text waves-effect waves-light');
-    body.setAttribute('class', 'collapsible-body blue lighten-4');
-
+    title.setAttribute('class', 'collapsible-header white-text waves-effect waves-light');
+    body.setAttribute('class', 'collapsible-body grey lighten-3');
     img.setAttribute('src', recipe.strMealThumb);
-    img.setAttribute('class', 'align-left');
-    img.setAttribute('height', '50px');
-    img.setAttribute('width', '50px');
-    span.setAttribute('id', 'recipe_title');
 
     span.textContent = recipe.strMeal;
-    // body.textContent = 'Sample Recipe';
 
     title.appendChild(img);
     title.appendChild(span);
@@ -39,8 +31,6 @@ function createList(recipeList, recipe) {
     recipeList.appendChild(li);
 
     let loaded = false;
-
-
     title.addEventListener('click', function () {
         if (!loaded) {
             showRecipe(body, recipe.idMeal);
@@ -48,6 +38,7 @@ function createList(recipeList, recipe) {
         }
     })
 }
+
 
 function noData(ingredient) {
     var elems = document.querySelector('.modal');
@@ -60,7 +51,7 @@ function noData(ingredient) {
 
 btn.addEventListener("click", function () {
     var request = new XMLHttpRequest();
-    let ingredient = document.getElementById("ing").value;
+    let ingredient = document.getElementById("search").value;
     request.open('GET', 'https://www.themealdb.com/api/json/v1/1/filter.php?i=' + ingredient, true);
 
     request.onload = function () {
